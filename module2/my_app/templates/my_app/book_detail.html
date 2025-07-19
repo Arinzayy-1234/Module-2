@@ -9,6 +9,10 @@
 <body>
     <h1> bookid -> book </h1>
     {% url 'book_detail' pk=book.id as book_detail_url %}
+    book_detail_url: {{book_detail_url}}
+    <p>
+        <a href="{{ book_detail_url }}">View details for {{ book.title }}</a>
+    </p>
     
 </body>
 </html>
