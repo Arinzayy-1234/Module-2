@@ -23,4 +23,4 @@ class hello_view(TemplateView):
 
     # A class based view rendering a template name hello.html
 
-    template_name = 'hello.html'
+    template_name = 'my_app/hello.html'
