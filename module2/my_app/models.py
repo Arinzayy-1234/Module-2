@@ -14,3 +14,7 @@ class Book(models.Model):
 
         return f'Book Title: {self.title}, Author: {self.author}, published in {self.published_date}'
 
+    def get_bookID(self):
+        return f'The Id of the book is {self.id}'
+    
+    
