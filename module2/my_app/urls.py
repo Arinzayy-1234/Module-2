@@ -13,5 +13,7 @@ urlpatterns = [
     # The <int:pk> captures the primary key of the book and passes it to the view
     # as the 'pk' argument, which is used by the DetailView to retrieve the # specific book instance.
     # Add more URL patterns as needed
-    path ('book/<int:pk>/', views.BookDetailView.as_view(), name = 'book_detail')
+    path ('book/<int:pk>/', views.BookDetailView.as_view(), name = 'book_detail'),
+    path ('book/<int:pk>/update/', views.BookUpdateView.as_view(), name = 'book_update'),
+    # This URL pattern handles the update view for a specific book instance.
     ]

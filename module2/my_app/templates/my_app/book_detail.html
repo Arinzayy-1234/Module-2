@@ -1,12 +1,11 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<! -- book_detail.html -->
+
+{% extends 'base.html' %}
+{% block title %} Book Details {% endblock %}
+
+{% block content %}
+
     <h1> bookid -> book </h1>
     {% url 'book_detail' pk=book.id as book_detail_url %}
     book_detail_url: {{book_detail_url}}
@@ -14,5 +13,5 @@
         <a href="{{ book_detail_url }}">View details for {{ book.title }}</a>
     </p>
     
-</body>
-</html>
+
+{%endblock %}

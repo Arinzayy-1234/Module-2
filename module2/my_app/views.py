@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import TemplateView, DetailView
+from django.views.generic import TemplateView, DetailView, UpdateView
+from django.urls import reverse_lazy
 
 from . models import Book
 
@@ -38,3 +39,17 @@ class BookDetailView(DetailView):
         book = self.get_object()
         context['bookid'] = book.get_bookID()
         return context
+
+class BookUpdateView(UpdateView):
+    model = Book
+    fields = ['title', 'author', 'description', 'published_date']
+
+    template_name = 'my_app/book_update_form.html'
+
+    success_url = reverse_lazy('book_list')  # Redirect to book list after successful update
+
+    def form_valid(self,form):
+        """Handle the form submission and save the updated book."""
+        response = super().form_valid(form)
+        # You can add additional logic here if needed
+        return response
